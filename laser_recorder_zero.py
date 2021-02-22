@@ -16,7 +16,7 @@ def laser_listener(data, csv_writer):
     :type data: LaserScan
     """
     global count
-    range = data.ranges[0]
+    range = data.ranges[403]
     if math.isinf(range):
         range = 0
     if data.angle_min > data.angle_increment:
