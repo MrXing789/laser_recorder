@@ -17,11 +17,12 @@ def laser_listener(data, csv_writer):
     """
     global count
     range = data.ranges[0]
+    angle = math.degrees(data.angle_min)
     if math.isinf(range):
         range = 0
-    if data.angle_min > data.angle_increment:
+    if angle > 0.2:
         return
-    row = [str(data.angle_min), str(range)]
+    row = [str(data.angle_min), str(angle), str(range), str(data.intensities[0])]
     csv_writer.writerow(row)
     rospy.loginfo(row)
 
